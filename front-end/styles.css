@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+}
+.title {
+    font-size: 70px;
+}
+.buttons1 {
+    width: 130px;
+    height: 130px;
+    outline-color: #000;
+}
+.buttons2 {
+    width: 130px;
+    height: 130px;
+    outline-color: #000;
+}
+.buttons3 {
+    width: 130px;
+    height: 130px;
+    outline-color: #000;
+}
+.buttons {
+    vertical-align: top;
+    color: #000;
+}
