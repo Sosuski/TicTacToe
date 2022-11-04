@@ -26,12 +26,9 @@
                     user: user.value,
                     pass: pass.value
                 })
-            })
-
-            return false;
-
-
-        });
+            }).then((res) => { return res.json() });
+            alert(response.message)
+        }); 
     </script>
 </body>
 </html>

@@ -16,7 +16,7 @@ server.use(express.json());
 
 // server.use изпълнява middleware на всеки request
 server.use(cors({
-    origin: 'http://localhost:5500' 
+    origin: 'http://127.0.0.1:5500' 
 }));
 
 
@@ -27,7 +27,7 @@ server.use(cors({
 
 // HTTP request-а е POST, endpoint-а е /register, middleware-а е функцията на втори параметър
 server.post('/register', async (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     const user = new userSchema();
 
     user.username = req.body.user;
@@ -42,11 +42,17 @@ server.post('/register', async (req, res) => {
 });
 
 server.post('/login', async (req, res) => {  
-    console.log(req.body);  
+    //console.log(req.body);  
     const query = await userSchema.findOne({ username: req.body.user });
-    if(query!=null)
-    console.log(query);
-
+    if(query!=null && query.password == req.body.pass){
+        res.json({
+            message: 'successfully logged in',
+            code: 201
+        }) 
+    } else res.json({
+        message: 'Failed to log in',
+        code: 202
+    })
 });
 // Тук библиотеките връщат обект, който запазваме под формата на променлива, че да интерактираме с тях
 
