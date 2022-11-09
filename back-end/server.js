@@ -19,7 +19,20 @@ server.use(cors({
     origin: 'http://127.0.0.1:5500' 
 }));
 
-
+server.get('/users', async (req,res) => {
+    const query = await userSchema.find({});
+    let arr = [];
+    for(let i = 0; i < query.length; i++) {
+        arr.push(query[i].username);
+    }
+    res.json(
+        {
+            message: arr,
+            statusCode: 200
+        }
+    )
+    
+})
 
 // express в случая е функция, която слагам в друга променлива
 
