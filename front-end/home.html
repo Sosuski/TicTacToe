@@ -6,9 +6,13 @@
 </head>
 <body>
     <h1>Home</h1>
+    <!--Math.random().toString(36)
+        QueryParameter
+        --->
+    <a class="button" href="/front-end/home.html?id=">Play</a>
     <div id="div">   
-        
     </div>
+    
       <script>
         const getUsers = async () => {
             const a = await fetch('http://localhost:8000/users',{method:'GET'}).then((res) => res.json());
@@ -21,7 +25,10 @@
             }
 
         }
-        
+        const href = document.getElementsByClassName("button")[0]
+        const attributeOutput = href.getAttribute("href");
+        const queryParameter = Math.random().toString(36)
+        href.setAttribute("href",attributeOutput+queryParameter)
         getUsers();
       </script>
 </body>
